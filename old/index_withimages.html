@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+
+    <title>Hello World</title>
+
+    <style>
+      body {
+        border: 1px solid black;
+      }
+      .card {
+        border: 1px solid black;
+        border-radius: 25% 15%;
+        background-color: #AAA333;
+        color: white;
+        height: 200px ;
+        width: 100px;
+        cursor: pointer;
+        text-align: center;
+        display:table-cell;
+        vertical-align: middle;
+        left: 50%;
+      }
+      
+      .click {
+        width: 150px;
+        height: 200px;
+        border-radius: 0;
+        /*background-image: url("https://sites.psu.edu/wp-content/uploads/sites/9476/2013/04/click-me.jpg");*/
+        background-image: url("images/ClickCard.png");
+
+	background-repeat: no-repeat;
+      }
+      
+      .main {
+      
+              background-color: #00FFFF;
+              color: black;
+              width: 200px;
+              height: 300px ;
+      
+      }
+      
+ 
+      
+      
+      
+    </style>
+
+    <!-- Inline scripts are forbidden in Firefox OS apps (CSP restrictions),
+         so we use a script file. -->
+    <script src="app_withimages.js" defer></script>
+
+  </head>
+
+  <body>
+    <div class="card click" title= "New Question Please !" onclick="loadquestion();"> </div> 
+    
+    
+    <div id="question"></div>
+
+  </body>
+
+
+</html>

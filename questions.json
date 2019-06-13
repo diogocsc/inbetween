@@ -1,0 +1,18 @@
+{
+	"1":{
+		"question": "What do you bring in your wallet now ?",
+		"type": "Ice Breaker"
+	},
+	"2":{
+		"question": "Who are you ?",
+		"type": "Deep"
+	},
+	"3":{
+		"question": "What is your favorite animal and why?",
+		"type": "Ice Breaker"
+	},
+	"4":{
+		"question": "If you were an object in this room which object would you be and why?",
+		"type": "Ice Breaker"
+	}
+}

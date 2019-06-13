@@ -1,0 +1,78 @@
+
+
+Elementos Core
+
+Perguntas
+
+
+Ecrãs
+
+**MVP (mobile-first)** 
+
+Primeiro Ecrã:
+Imagem de boas-vindas ao jogo.
+Botão para iniciar jogo (que caso não hajam perguntas, não está disponível)
+Botão para configurar perguntas
+
+Possibilidade de ir de ecrã de configurar perguntas para ecrã de jogo, e vice-versa.
+
+
+Principal:
+Jogo
+
+Auxiliares:
+
+
+Criação e Edição de perguntas (baralho único)
+Lista de perguntas
+
+
+****fim MVP
+
+2ª fase:
+
+Multilingue (Português e Inglês)
+
+
+
+Criação e edição de baralhos: customizado, por categoria, random/automatico
+
+
+Criação e edição de categorias (ex: Meet a Stranger
+Lista de Categorias
+
+Criação e edição de templates de cartas
+Lista de templates de cartas
+
+Possibilidade de encomendar impressão do baralho e envio para casa
+  - listar parceiros
+  - ecrã de pedido
+  	- seleção do baralho a imprimir
+  - ecrã de pagamento
+
+
+3ª Fase
+Criação de processo de tradução de cartas
+ - selecionar pergunta
+ - selecionar lingua
+ - escrever tradução
+ - rever tradução (fará sentido?)
+
+
+Modo de Jogar:
+
+Jogador inicia novo jogo através do ecrã principal.
+Ao clicar/tocar no ecrã muda a pergunta, até que já todas as perguntas tenham saído.
+Aí terá que fazer restart para começar novo jogo.
+
+Por cada pergunta jogada, o jogador ganha um ponto.
+   - questão: como evitar "falseamentos" ? (i.e., jogador passar perguntas rapidamente para ganhar pontos, mas sem as jogar)
+	- se ele quiser falsear prob dele...os pontos dele são para ele e se falsear é pq se esta a enganar a si próprio.
+	- Pode haver botão de next e de skip.
+   - questão: deverá haver espaço para respostas? (default diria que não)
+   - farão sentido os pontos ? se sim para quê ?
+	- para medir a experiência de jogo do utilizador
+	- os pontos podem dar acesso a features no jogo - um prémio para os que jogam mto.
+
+É contabilizado o tempo de cada jogo, desde o inicio do jogo, até ao fim -> marcado pelo fim das perguntas ou pelo carregar no botão de restart.
+
