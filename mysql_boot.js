@@ -3,8 +3,8 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'root',
-    database: 'inbetween',
+    password: 'rootAdmin123!',
+  //  database: 'inbetween',
     //port: 3306, // default already 3306
     debug: false
 });
@@ -12,6 +12,7 @@ var connection = mysql.createConnection({
 
 // Create Database
 connection.query('CREATE DATABASE IF NOT EXISTS inbetween');
+connection.database = "inbetween";
 
 connection.connect(function (err) {
     if (err) {
@@ -46,9 +47,9 @@ connection.query('INSERT INTO questions(question, question_type)' +
 connection.query('INSERT INTO questions(question, question_type)' +
 ' VALUES (?, ?)', ["What do you bring in your wallet now?", "Ice Breaker"]);
 
-connection.query('SELECT * FROM questions').on('result', function(row){
-    console.log(row.question + ':' + row.question_type);
-});
+//connection.query('SELECT * FROM questions').on('result', function(row){
+//    console.log(row.question + ':' + row.question_type);
+//});
 
 connection.query('SELECT * FROM questions', function(error, result){
     if(error)
@@ -57,4 +58,4 @@ connection.query('SELECT * FROM questions', function(error, result){
         console.log(result[i].question + " : " + result[i].question_type);
 });
 
-//connection.end();
+connection.end();
