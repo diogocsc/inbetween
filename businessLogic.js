@@ -11,6 +11,11 @@ var connection = mysql.createConnection({
 });
 var questions=[];
 
+//flag serves the purpose of informing server.js that listquestion is already finished. 
+// GO and STOP are the two values of flag.
+
+var flag = "STOP";
+
 // checks if connection is failing and responds appropriately
 
 connection.connect(function (err) {
@@ -27,28 +32,39 @@ connection.on('error', function (err) {
 
 // lists existing questions - either all or the ones that match a given question type
 
-function listQuestions(qtype=''){
 
-   if(qtype=''){
+module.exports = {
+listQuestions: function (qtype=''){
+
+   if(qtype==''){
        //lists all questions
-  
-        questions = connection.query('Select questions, question_type FROM questions', function (err, rows, fields) {
-             if (err) throw err;
+
+ //      connection.connect(function(err) {
+     console.log ( "listQ 1");
+        var a=connection.query('Select question FROM questions', function (err, rows, fields) {
+            if (err) throw err;
+           console.log("Go rows");
+           console.log(rows);
+           flag="GO";
              return rows;
          } );
+
+
     }
     // list questions by Type
     else {
-        questions = connection.query('Select questions, question_type FROM questions WHERE type='+qtype, function (err, rows, fields) {
+        questions = connection.query('Select question FROM questions WHERE type='+qtype, function (err, rows, fields) {
             if (err) throw err;
             return rows;
         } );
     }
-    return questions;
+    console.log ( "listQ 2");
+
+}
 }
 
 console.log(questions);
-connection.end();
+//connection.end();
 
 // respond with "questions" when a GET request is made to questions
 

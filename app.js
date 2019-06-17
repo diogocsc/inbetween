@@ -1,5 +1,4 @@
 
-
 /*var questions = [
   "What do you bring in your wallet now ?",
   "Who are you ?",
@@ -19,38 +18,58 @@ var playCards = questions;
 var usedDeck = [];
 var reader = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
 
-function loadFile() {
-   reader.open('get', 'questions.txt', true); 
+
+function getQuestions (){
+  xhr=new XMLHttpRequest();
+  xhr.open("GET", "http://localhost:8124/questions", true);
+  xhr.send();
+  xhr.onreadystatechange=function(){
+    if(xhr.readyState==4 && xhr.status==200){
+      console.log(xhr.responseText);
+      questions = xhr.responseText.split(","); 
+      playCards = questions;
+      startMeUp();
+    }
+  }
+ 
+  
+}
+
+getQuestions();
+
+
+//function loadFile() {
+//   reader.open('get', 'questions.txt', true); 
   //reader.open('get', 'questions.json', true); 
   //  reader.onreadystatechange = displayContents;
   //  reader.onloadend = startMeUp;
-    reader.onloadend = displayContents;
+//    reader.onloadend = displayContents;
 
-    reader.send(null);
-}
+ //   reader.send(null);
+//}
 
-function displayContents() {
-    if(reader.readyState==4) {
+//function displayContents() {
+//    if(reader.readyState==4) {
       //  var el = document.getElementById('main');
       //  el.innerHTML = reader.responseText;
      // var aux=JSON.parse(reader.responseText);
      // console.log(aux);
      // questions = JSON.parse(aux,(key,value) =>{
-      questions =  reader.responseText.split(",");
+    //  questions =  reader.responseText.split(",");
      // }
      // )
-      playCards = questions;
-      startMeUp();
+  //    playCards = questions;
+  //    startMeUp();
 
-    }
-    else {
-      questions = ['No questions'];
-    }
-}
+  //  }
+ //   else {
+//      questions = ['No questions'];
+//    }
+//}
 
 // finish reading data from file
 
-loadFile();
+//loadFile();
 
 function startMeUp() {
   if (document.readyState == 'complete' ) {
@@ -99,8 +118,8 @@ function loadquestion() {
 }
 
 function restart(){
-
-  displayContents();
+  
+  getQuestions();
   usedDeck = [];
   playCards = questions;
   loadquestion();
